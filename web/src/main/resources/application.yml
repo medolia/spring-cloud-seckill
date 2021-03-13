@@ -1,0 +1,37 @@
+server:
+  port: 8084
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: web
+  thymeleaf:
+    suffix: .html
+    cache: false
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      auto-offset-reset: earliest
+    producer:
+      bootstrap-servers: localhost:9092
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  topic:
+    login: login
+    goods: goods
+    order: order
+
+# redis
+redis:
+  host: 127.0.0.1
+  port: 6379
+  timeout: 30
+  password: 123456
+  poolMaxTotal: 3000
+  poolMaxIdle: 100
+  poolMaxWait: 100
